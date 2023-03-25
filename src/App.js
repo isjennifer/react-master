@@ -1,28 +1,35 @@
-import styled from "styled-components";
+import styled, {keyframes} from "styled-components";
 
-const Father = styled.div`
+const Wrapper = styled.div`
   display : flex;
 `;
-
-const Btn = styled.button`
-  background-color : teal;
+const rotateAnimation = keyframes`
+  0% {
+    border-radius : 0px;
+    transform : rotate(0deg);
+  }
+  50% {
+    border-radius : 100px;
+    transform:rotate(360deg);
+  }
+  100% {
+    border-radius : 0px;
+    transform : rotate(0deg);
+  }
 `;
 
-// Input 안에 중복되는 속성을 넣고 싶은 경우 return 안의 Input에 다 넣을 필요 없이 attrs를 사용하면 됨
-const Input = styled.input.attrs({required : true, maxLength : 10})`
+const Box = styled.div`
   background-color : tomato;
+  width : 200px;
+  height : 200px;
+  animation : ${rotateAnimation} 1s linear infinite
 `;
 
 function App() {
   return (
-    <Father>
-      {/* Btn은 button이지만 다른 html 태그로 바꾸고 싶을때 as 속성을 사용하면 됨  */}
-      <Btn as="a" href="/">Log In</Btn>
-      <Input />
-      <Input />
-      <Input />
-      <Input />
-    </Father>
+    <Wrapper>
+      <Box />
+    </Wrapper>
   );
 }
 
