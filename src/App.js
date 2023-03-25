@@ -17,6 +17,16 @@ const rotateAnimation = keyframes`
   }
 `;
 
+const BoxSm = styled.div`
+  background-color : teal;
+  width : 100px;
+  height : 100px;
+  display : flex;
+  justify-content : center;
+  align-items : center;
+  animation : ${rotateAnimation} 1s linear infinite; 
+`;
+
 const Box = styled.div`
   background-color : tomato;
   width : 200px;
@@ -25,22 +35,20 @@ const Box = styled.div`
   justify-content : center;
   align-items : center;
   animation : ${rotateAnimation} 1s linear infinite;
-  span {
-    font-size: 40px;
+  ${BoxSm} {
     &:hover {
-      font-size: 60px;
+      background-color : black;
     }
-    &:active {
-      opacity: 0;
-    }
-  };
+  }
 `;
+
+
 
 function App() {
   return (
     <Wrapper>
       <Box>
-        <span>😀</span>
+        <BoxSm></BoxSm>
       </Box>
     </Wrapper>
   );
