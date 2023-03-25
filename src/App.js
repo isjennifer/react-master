@@ -3,6 +3,7 @@ import styled, {keyframes} from "styled-components";
 const Wrapper = styled.div`
   display : flex;
 `;
+
 const rotateAnimation = keyframes`
   0% {
     border-radius : 0px;
@@ -17,39 +18,26 @@ const rotateAnimation = keyframes`
   }
 `;
 
-const BoxSm = styled.div`
-  background-color : teal;
-  width : 100px;
-  height : 100px;
-  display : flex;
-  justify-content : center;
-  align-items : center;
-  animation : ${rotateAnimation} 1s linear infinite; 
-`;
-
 const Box = styled.div`
-  background-color : tomato;
-  width : 200px;
+  background-color : ${(props) => props.bgColor};
+  width : ${(props) => props.width};
   height : 200px;
   display : flex;
   justify-content : center;
   align-items : center;
   animation : ${rotateAnimation} 1s linear infinite;
-  ${BoxSm} {
-    &:hover {
-      background-color : black;
-    }
-  }
 `;
-
 
 
 function App() {
   return (
     <Wrapper>
-      <Box>
-        <BoxSm></BoxSm>
-      </Box>
+      <Box bgColor="tomato" width="200px"/>
+      <Box bgColor="black" width="100px"/>
+      <Box bgColor="teal" width="50px"/>
+      <Box bgColor="green" width="200px"/>
+      <Box bgColor="yellow" width="10px"/>
+      <Box bgColor="tomato" width="300px"/>
     </Wrapper>
   );
 }
