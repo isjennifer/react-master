@@ -4,25 +4,24 @@ const Father = styled.div`
   display : flex;
 `;
 
-const Box = styled.div`
-  background-Color : ${(props) => props.bgColor};
-  width : 100px;
-  height : 100px;
+const Btn = styled.button`
+  background-color : teal;
 `;
 
-const Circle = styled(Box)`
-  border-radius : 50px;
-`;
-
-const Text = styled.span`
-  color : white;
+// Input 안에 중복되는 속성을 넣고 싶은 경우 return 안의 Input에 다 넣을 필요 없이 attrs를 사용하면 됨
+const Input = styled.input.attrs({required : true, maxLength : 10})`
+  background-color : tomato;
 `;
 
 function App() {
   return (
     <Father>
-      <Box bgColor="teal" />
-      <Circle bgColor="green" />
+      {/* Btn은 button이지만 다른 html 태그로 바꾸고 싶을때 as 속성을 사용하면 됨  */}
+      <Btn as="a" href="/">Log In</Btn>
+      <Input />
+      <Input />
+      <Input />
+      <Input />
     </Father>
   );
 }
